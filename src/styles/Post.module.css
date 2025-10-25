@@ -1,0 +1,155 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* đoạn css cho các bài viết */
+.post__main p {
+  padding-bottom: 12px;
+}
+.post__main h1,
+.post__main h2,
+.post__main h3,
+.post__main h4 {
+  font-weight: bold;
+  padding-bottom: 8px;
+  margin-top: 24px;
+}
+.post__main h1 {
+  font-size: 1.5rem;
+}
+.post__main h2 {
+  font-size: 1.4rem;
+}
+.post__main h3 {
+  font-size: 1.3rem;
+}
+.post__main h4 {
+  font-size: 1.1rem;
+}
+
+.post__main a {
+  color: blueviolet;
+  text-decoration: underline;
+}
+.post__main li {
+  margin-left: 16px;
+}
+
+.post__main img {
+  display: block;
+  margin: 0 auto;
+}
+.post__main figcaption {
+  text-align: center;
+  font-weight: 500;
+  padding-bottom: 8px;
+}
+
+.post__heading {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+.post__heading h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: "center";
+  padding-bottom: "16px";
+}
+
+.not-found {
+  padding-top: 62px;
+}
+
+.not-found p {
+  font-weight: 600;
+  padding-bottom: 24px;
+  font-size: 1.2rem;
+}
+
+.not-found a {
+  color: red;
+  display: block;
+}
+
+@media (min-width: 1280px) {
+  .post {
+    flex-direction: row;
+  }
+  .post--share {
+    padding-top: 24px;
+    margin-right: 24px;
+    margin-left: -72px;
+    right: 100%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .not-found p {
+    font-size: 2rem;
+  }
+}
+.post__main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 1rem;
+  border: 1px solid #000;
+  /* viền ngoài đậm */
+}
+
+.post__main table th,
+.post__main table td {
+  border: 1px solid #000;
+  /* viền ô */
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  background-color: #fff;
+  /* nền trắng */
+}
+
+.post__main table th {
+  background-color: #f2f2f2;
+  /* nền xám nhạt cho tiêu đề */
+  font-weight: bold;
+}
+
+.post__main table td:first-child {
+  font-weight: 500;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .post__main table,
+  .post__main table thead,
+  .post__main table tbody,
+  .post__main table th,
+  .post__main table td,
+  .post__main table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .post__main table tr {
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .post__main table td {
+    text-align: left;
+    /* padding-left: 50%; */
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .post__main table td:last-child {
+    border-bottom: none;
+  }
+}

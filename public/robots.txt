@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /api/
+Disallow: /private/
+Allow: /public/
+
+
+Sitemap: https://ehou.vn/sitemap.xml
