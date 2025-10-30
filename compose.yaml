@@ -1,0 +1,54 @@
+services:
+
+  database:
+    image: mysql:latest
+    container_name: database-ehou
+    restart: always
+    user: 1004:1004
+    environment:
+      MYSQL_ROOT_PASSWORD: It@2025
+      MYSQL_DATABASE: ehou
+      MYSQL_USER: it_aum
+      MYSQL_PASSWORD: It@2025
+    volumes:
+      - ./mysql-vol:/var/lib/mysql
+      - ./init-sql:/docker-entrypoint-initdb.d  # Chạy script tạo user
+    networks:
+      - backend-network
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress-ehou
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "8001:80"
+    user: 1004:1004
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: it_aum
+      WORDPRESS_DB_PASSWORD: It@2025
+      WORDPRESS_DB_NAME: ehou
+    volumes:
+      - ./wordpress-ehou-vol:/var/www/html
+    networks:
+      - backend-network
+      - frontend-network
+  nextjs:
+    build: .
+    container_name: next-ehou
+    restart: always
+    depends_on:
+      - wordpress
+    ports:
+      - "3003:3000"
+    networks:
+      - frontend-network
+
+volumes:
+  mysql-vol:
+  wordpress-ehou-vol:
+
+networks:
+  frontend-network:
+  backend-network:
