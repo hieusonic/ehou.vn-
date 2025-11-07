@@ -4,7 +4,6 @@ services:
     image: mysql:latest
     container_name: database-ehou
     restart: always
-    user: 1004:1004
     environment:
       MYSQL_ROOT_PASSWORD: It@2025
       MYSQL_DATABASE: ehou
@@ -23,7 +22,6 @@ services:
       - database
     ports:
       - "8001:80"
-    user: 1004:1004
     environment:
       WORDPRESS_DB_HOST: database
       WORDPRESS_DB_USER: it_aum
